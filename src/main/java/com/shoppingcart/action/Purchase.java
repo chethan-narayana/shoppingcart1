@@ -12,7 +12,7 @@ public class Purchase {
         order.addProduct(BigInteger.valueOf(122222222));
         order.addProduct(BigInteger.valueOf(122222222));
         order.addProduct(BigInteger.valueOf(122222232));
-        order.removeProduct(BigInteger.valueOf(122222222));
+       // order.removeProduct(BigInteger.valueOf(122222222));
         //order.removeProduct(BigInteger.valueOf(122222222));
         order.checkOut();
 

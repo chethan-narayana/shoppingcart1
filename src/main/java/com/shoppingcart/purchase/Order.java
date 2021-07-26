@@ -12,18 +12,21 @@ import java.util.Objects;
 public class Order {
 
     private Map<Product, Integer> shoppingBag = null;
+    private Map<BigInteger, Product> productCatalogueMaster = null;
 
     public Order() {
         this.shoppingBag = new HashMap<>();
+        productCatalogueMaster = ProductCatalogue.getInstance().getProductCatalogue();
     }
 
     public boolean addProduct(BigInteger barCode) {
 
-        Map<BigInteger, Product> productCatalogueMaster = ProductCatalogue.getInstance().getProductCatalogue();
-        if (Objects.isNull(barCode) || productCatalogueMaster.get(barCode) == null) {
+        Product product = productCatalogueMaster.get(barCode);
+        //If barcode is invalid or Barcode doesn't exist
+        if (Objects.isNull(barCode) || Objects.isNull(product)) {
             return false;
         }
-        Product product = productCatalogueMaster.get(barCode);
+
         if (shoppingBag.containsKey(product)) {
             int quantity = shoppingBag.get(product);
             shoppingBag.put(productCatalogueMaster.get(barCode), ++quantity);
@@ -41,7 +44,6 @@ public class Order {
                 else shoppingBag.remove(product);
                 return true;
             }
-
         }
         return false;
     }

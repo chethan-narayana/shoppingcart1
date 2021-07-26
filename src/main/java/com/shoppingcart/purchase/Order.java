@@ -33,10 +33,15 @@ public class Order {
         return true;
     }
 
-    public boolean removeProduct(Product product) {
-        if (shoppingBag.containsKey(product)) {
-            shoppingBag.remove(product);
-            return true;
+    public boolean removeProduct(BigInteger barCode) {
+        for (Product product : shoppingBag.keySet()) {
+            if (product.getBarCode().equals(barCode)) {
+                int value = shoppingBag.get(product);
+                if (value > 1) shoppingBag.put(product, --value);
+                else shoppingBag.remove(product);
+                return true;
+            }
+
         }
         return false;
     }
@@ -44,7 +49,7 @@ public class Order {
     public void checkOut() {
         System.out.println("Order Summary");
         for (Product product : shoppingBag.keySet()) {
-            System.out.println("Product Name : " + product.getName() + " "+ shoppingBag.get(product) + "X"+product.getPrice() +" = " + (product.getPrice() * shoppingBag.get(product)));
+            System.out.println("Product Name : " + product.getName() + " " + shoppingBag.get(product) + "X" + product.getPrice() + " = " + (product.getPrice() * shoppingBag.get(product)));
         }
     }
 }

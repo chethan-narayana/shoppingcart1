@@ -11,8 +11,8 @@ public class Purchase {
         Order order = new Order();
         order.addProduct(BigInteger.valueOf(122222222));
         order.addProduct(BigInteger.valueOf(122222222));
-        order.addProduct(BigInteger.valueOf(122222232));
-       order.removeProduct(BigInteger.valueOf(122222222));
+        order.addProduct(BigInteger.valueOf(344556666));
+      // order.removeProduct(BigInteger.valueOf(122222222));
         //order.removeProduct(BigInteger.valueOf(122222222));
         order.checkOut();
 

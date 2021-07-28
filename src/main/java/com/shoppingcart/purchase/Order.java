@@ -28,9 +28,9 @@ public class Order {
 
         if (shoppingBag.containsKey(product)) {
             int quantity = shoppingBag.get(product);
-            shoppingBag.put(productCatalogueMaster.get(barCode), ++quantity);
+            shoppingBag.put(product, ++quantity);
         } else {
-            shoppingBag.put(productCatalogueMaster.get(barCode), 1);
+            shoppingBag.put(product, 1);
         }
         return true;
     }
@@ -52,6 +52,11 @@ public class Order {
         for (Product product : shoppingBag.keySet()) {
             System.out.println("Product Name : " + product.getName() + " " + shoppingBag.get(product) + "X" + product.getPrice() + " = " + (product.getPrice() * shoppingBag.get(product)) + " SGD");
         }
+    }
+
+    public int size()
+    {
+        return shoppingBag.keySet().size();
     }
 }
 

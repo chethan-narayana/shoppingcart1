@@ -4,15 +4,14 @@ import com.shoppingcart.core.Product;
 import com.shoppingcart.core.ProductCatalogue;
 
 import java.math.BigInteger;
-import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class Order {
 
-    private Map<Product, Integer> shoppingBag = null;
-    private Map<BigInteger, Product> productCatalogueMaster = null;
+    private Map<Product, Integer> shoppingBag;
+    private Map<BigInteger, Product> productCatalogueMaster;
 
     public Order() {
         this.shoppingBag = new HashMap<>();
@@ -23,7 +22,7 @@ public class Order {
 
         Product product = productCatalogueMaster.get(barCode);
         //If barcode is invalid or Barcode doesn't exist
-        if (Objects.isNull(barCode) || Objects.isNull(product)) {
+        if (Objects.isNull(product)) {
             return false;
         }
 
@@ -51,7 +50,7 @@ public class Order {
     public void checkOut() {
         System.out.println("Order Summary");
         for (Product product : shoppingBag.keySet()) {
-            System.out.println("Product Name : " + product.getName() + " " + shoppingBag.get(product) + "X" + product.getPrice() + " = " + (product.getPrice() * shoppingBag.get(product)));
+            System.out.println("Product Name : " + product.getName() + " " + shoppingBag.get(product) + "X" + product.getPrice() + " = " + (product.getPrice() * shoppingBag.get(product)) + " SGD");
         }
     }
 }

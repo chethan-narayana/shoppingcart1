@@ -52,6 +52,7 @@ public class Order {
         for (Product product : shoppingBag.keySet()) {
             System.out.println("Product Name : " + product.getName() + " " + shoppingBag.get(product) + "X" + product.getPrice() + " = " + (product.getPrice() * shoppingBag.get(product)) + " SGD");
         }
+        shoppingBag.clear();
     }
 
     public int size()

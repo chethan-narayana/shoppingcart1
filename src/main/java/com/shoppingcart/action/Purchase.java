@@ -15,6 +15,7 @@ public class Purchase {
       // order.removeProduct(BigInteger.valueOf(122222222));
         //order.removeProduct(BigInteger.valueOf(122222222));
         order.checkOut();
+        System.out.println("Size of bag " + order.size());
 
     }
 }

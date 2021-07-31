@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
 
 public class OrderTest {
 
+
     private Order order;
     private Map<BigInteger, Product> productCatalogueMaster;
 

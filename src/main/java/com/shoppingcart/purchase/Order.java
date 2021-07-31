@@ -9,7 +9,6 @@ import java.util.Map;
 import java.util.Objects;
 
 public class Order {
-
     private Map<Product, Integer> shoppingBag = new HashMap<>();
     private Map<BigInteger, Product> productCatalogueMaster = ProductCatalogue.getInstance().getProductCatalogue();
 
@@ -30,6 +29,7 @@ public class Order {
         if (!shoppingBag.containsKey(product)) {
             return false;
         }
+
 
         shoppingBag.computeIfPresent(product, (ignoreKey, currentValue) -> currentValue - 1);
         shoppingBag.remove(product, 0);
